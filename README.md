@@ -77,6 +77,7 @@ Results will be saved in runs/detect/predict/
 - Python: 3.12
 
 ## Repository Structure
+```
 project/
 ├── train.py               # Training script
 ├── predict.py             # Inference script
@@ -95,6 +96,7 @@ project/
                 └── weights/
                     ├── best.pt  (download from Hugging Face)
                     └── last.pt  (download from Hugging Face)
+```
 
 ## Ethical Considerations
 - All human faces in the dataset were blurred prior to training
