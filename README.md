@@ -1,23 +1,46 @@
 # Safety Detection YOLOv8
 
-AI-Based Smart Campus Safety Monitoring System  
+AI-Based Smart Campus Safety Monitoring System
 Course: BCS407 – Artificial Intelligence | Canadian University Dubai
 
 ## Project Overview
 This project implements a real-time object detection system using YOLOv8m to monitor campus safety. The model detects 15 safety-related classes including safety helmets, emergency exits, fire alarms, and exit violations. All training was performed locally using PyTorch with CUDA acceleration on an NVIDIA RTX 3070 Ti Laptop GPU.
 
-## Model Weights
-Trained model weights are hosted on Hugging Face (too large for GitHub):
-https://huggingface.co/Hassanmujtabat/safety-detection-yolov8/tree/main
-## Dataset
-Full annotated dataset (YOLOv8 format, 1,672 images, 15 classes) is available on Hugging Face:
+## Step 1 - Install Python 3.12
+Download and install Python 3.12 from:
+https://www.python.org/downloads/release/python-3129/
+Choose Windows installer (64-bit)
+
+## Step 2 - Install Dependencies
+Open terminal and run these commands one by one:
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+pip install ultralytics supervision opencv-python
+
+## Step 3 - Download the Dataset
+Download the dataset zip file from Hugging Face:
+https://huggingface.co/Hassanmujtabat/safety-detection-yolov8/blob/main/safety%20helmet.yolov8.zip
+
+Extract the zip file and place the train folder and data.yaml in the same folder as train.py
+
+## Step 4 - Download Model Weights
+Download best.pt and last.pt from Hugging Face:
 https://huggingface.co/Hassanmujtabat/safety-detection-yolov8/tree/main
 
-Download best.pt and last.pt from there and place them in:
+Place both files in this exact path:
 runs/detect/runs/my_model/weights/
 
-best.pt — best performing checkpoint (use this for inference)
+best.pt — best performing checkpoint, use this for inference
 last.pt — final epoch checkpoint
+
+## Step 5 - Run Training (optional, skip if using downloaded weights)
+Open terminal in the project folder and run:
+py -3.12 train.py
+
+## Step 6 - Run Inference
+Place your test image in the project folder and update the image filename in predict.py, then run:
+py -3.12 predict.py
+
+Results will be saved in runs/detect/predict/
 
 ## Classes Detected
 1. Fire Alarm
@@ -53,22 +76,12 @@ last.pt — final epoch checkpoint
 - Framework: PyTorch 2.5.1 + CUDA 12.1
 - Python: 3.12
 
-## Installation
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
-pip install ultralytics supervision opencv-python
-
-## Run Training
-py -3.12 train.py
-
-## Run Inference
-py -3.12 predict.py
-
 ## Repository Structure
 project/
-├── train.py
-├── predict.py
-├── run_once_to_download.py
-├── data.yaml
+├── train.py               # Training script
+├── predict.py             # Inference script
+├── run_once_to_download.py # Downloads base YOLOv8m weights
+├── data.yaml              # Dataset configuration
 └── runs/
     └── detect/
         └── runs/
