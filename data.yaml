@@ -1,0 +1,5 @@
+train: train/images
+val: train/images
+
+nc: 15
+names: ['Fire alarm', 'Left Exit', 'Left/Right Exit', 'Right Exit', 'Straight Exit', 'blocked emergency exit', 'boxes blocking exit', 'emergency exit door', 'exit block violation', 'exit-sign', 'head', 'helmet', 'objects blocked emergency exit', 'person', 'sign']
