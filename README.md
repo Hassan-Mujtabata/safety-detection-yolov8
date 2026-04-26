@@ -6,6 +6,16 @@ Course: BCS407 – Artificial Intelligence | Canadian University Dubai
 ## Project Overview
 This project implements a real-time object detection system using YOLOv8m to monitor campus safety. The model detects 15 safety-related classes including safety helmets, emergency exits, fire alarms, and exit violations. All training was performed locally using PyTorch with CUDA acceleration on an NVIDIA RTX 3070 Ti Laptop GPU.
 
+## Model Weights
+Trained model weights are hosted on Hugging Face (too large for GitHub):
+https://huggingface.co/Hassanmujtabat/safety-detection-yolov8/tree/main
+
+Download best.pt and last.pt from there and place them in:
+runs/detect/runs/my_model/weights/
+
+best.pt — best performing checkpoint (use this for inference)
+last.pt — final epoch checkpoint
+
 ## Classes Detected
 1. Fire Alarm
 2. Left Exit
@@ -28,9 +38,10 @@ This project implements a real-time object detection system using YOLOv8m to mon
 - Precision: 0.953
 - Recall: 0.946
 - F1 Score: 0.95
+- Parameters: 25.8M (YOLOv8m)
 
 ## Training Details
-- Model: YOLOv8m (25.8M parameters)
+- Model: YOLOv8m (medium)
 - Epochs: 50
 - Batch Size: 16
 - Image Size: 640x640
@@ -40,29 +51,34 @@ This project implements a real-time object detection system using YOLOv8m to mon
 - Python: 3.12
 
 ## Installation
-
-### Requirements
-```bash
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
 pip install ultralytics supervision opencv-python
-```
 
-### Run Training
-```bash
+## Run Training
 py -3.12 train.py
-```
 
-### Run Inference
-```bash
+## Run Inference
 py -3.12 predict.py
-```
 
-## Files
-- `train.py` — training script
-- `predict.py` — inference script
-- `data.yaml` — dataset configuration
-- `best.pt` — trained model weights
-- `results.csv` — training metrics per epoch
+## Repository Structure
+project/
+├── train.py
+├── predict.py
+├── run_once_to_download.py
+├── data.yaml
+└── runs/
+    └── detect/
+        └── runs/
+            └── my_model/
+                ├── results.png
+                ├── results.csv
+                ├── confusion_matrix_normalized.png
+                ├── BoxPR_curve.png
+                ├── BoxF1_curve.png
+                ├── labels.jpg
+                └── weights/
+                    ├── best.pt  (download from Hugging Face)
+                    └── last.pt  (download from Hugging Face)
 
 ## Ethical Considerations
 - All human faces in the dataset were blurred prior to training
