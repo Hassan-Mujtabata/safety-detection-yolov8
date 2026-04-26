@@ -9,6 +9,9 @@ This project implements a real-time object detection system using YOLOv8m to mon
 ## Model Weights
 Trained model weights are hosted on Hugging Face (too large for GitHub):
 https://huggingface.co/Hassanmujtabat/safety-detection-yolov8/tree/main
+## Dataset
+Full annotated dataset (YOLOv8 format, 1,672 images, 15 classes) is available on Hugging Face:
+https://huggingface.co/datasets/Hassanmujtabat/safety-detection-dataset
 
 Download best.pt and last.pt from there and place them in:
 runs/detect/runs/my_model/weights/
