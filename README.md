@@ -102,3 +102,10 @@ project/
 - All human faces in the dataset were blurred prior to training
 - No personal data or license plates were collected
 - System intended for safety monitoring purposes only
+## Contributors
+- Hassan Mujtaba (20220002085)
+- Leanne Jessica Rodrigo (20210001983)
+- Khaled Riyan (20220001526)
+- Izaan Shaikh (20220001735)
+
+Canadian University Dubai — BCS407 Artificial Intelligence, 2026
